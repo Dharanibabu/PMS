@@ -1,0 +1,53 @@
+
+
+function create_unit()
+{
+	
+	alert(arguments[0]);
+	var id = arguments[0];
+	
+   google.charts.setOnLoadCallback(drawChart4);
+      function drawChart4() {
+      var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Unit 2', 400],
+        ]);
+
+        var options = {
+          width: 1000, height: 200,
+          minorTicks: 5,
+  
+          majorTicks: ['0', '400']
+        };
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div4'));
+        var chart1 = new google.visualization.Gauge(document.getElementById('chart_div5'));
+        var chart2 = new google.visualization.Gauge(document.getElementById('chart_div6'));
+        var chart3 = new google.visualization.Gauge(document.getElementById('chart_div7'));
+        chart.draw(data, options);
+        chart1.draw(data, options);
+        chart2.draw(data, options);
+        chart3.draw(data, options);
+        var chart4 = new google.visualization.Gauge(document.getElementById('chart_div8'));
+        var chart5 = new google.visualization.Gauge(document.getElementById('chart_div9'));
+        var chart6 = new google.visualization.Gauge(document.getElementById('chart_div10'));
+        var chart7 = new google.visualization.Gauge(document.getElementById('chart_div11'));
+        chart4.draw(data, options);
+        chart5.draw(data, options);
+        chart6.draw(data, options);
+        chart7.draw(data, options);
+        var i = 1;
+        setInterval(function() {
+          if(i >  100) i = 0;
+          data.setValue(0, 1, i++);//40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 1000);
+
+        }
+}
+function popUp() {
+    var person = prompt("Enter the target");
+    if (person != null) {
+        document.getElementById("demo").innerHTML =
+        "Hello " + person + "! How are you today?";
+    }
+}	
